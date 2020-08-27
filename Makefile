@@ -18,7 +18,7 @@ SHELL:=/bin/bash
 EMOJI = Twemoji
 font: $(EMOJI).ttf
 
-EMOJI_SVG = ./svg/
+EMOJI_SVG = ./twemoji/assets/svg/
 
 EMOJI_PNG128 = ./png/
 
