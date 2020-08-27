@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 1200">
+<!--
+#FFCD05 g
+
+#ED1F24 r                              
+
+#141414 bl
+-->
+<defs>
+    <style>
+        .gold {
+            fill:#FFCD05;
+        }
+        .red {
+            fill:#ED1F24;
+        }
+        .black {
+            fill:#141414;
+        }
+        .goldstroke {
+            stroke:#FFCD05;
+        }
+        .redstroke {
+            stroke:#ED1F24;
+        }
+        .blackstroke {
+            stroke:#141414;
+        }
+
+        .greystroke {
+            stroke:#404040;
+        }
+
+        .outline {
+            stroke:#404040;
+            stroke-width:2;
+        }
+    </style>
+
+    <clipPath id="bound">
+        <!--<path d="M36 27c0 2.209-1.791 4-4 4H4c-2.209 0-4-1.791-4-4V9c0-2.209 1.791-4 4-4h28c2.209 0 4 1.791 4 4v18z"/> -->
+        <path d="M 0,165 m 130,0 h 940 q 130,0 130,130 v 610 q 0,130 -130,130 h -940 q -130,0 -130,-130 v -610 q 0,-130 130,-130 Z"/>
+    </clipPath>
+    <clipPath id="compassbound">
+        <path d="M 0,0 l -210,400 h 420 Z" />
+    </clipPath>
+
+    <g id="leaf">
+        <path class="gold outline" d="M 15,0 l -15,180 l -15,-180 Z" />
+    </g>
+    <g id="compass">
+        <!--<circle r="100" class="gold outline" clip-path="url(#compassbound)" />
+        <circle r="80" class="red outline" clip-path="url(#compassbound)"/>-->
+        <circle r="110" class="greystroke" stroke-width="26" fill="none" clip-path="url(#compassbound)" />
+        <circle r="110" class="goldstroke" stroke-width="20" fill="none" clip-path="url(#compassbound)" />
+
+        <use xlink:href="#leaf" transform="rotate(-30)" />
+        <use xlink:href="#leaf" transform="rotate(30)" />
+        <circle r="15" class="gold outline" />
+    </g>
+
+    <g id="device">
+        <circle class="gold outline" cx="0" cy="0" r="195"/>
+        <rect x="-10" y="-200" height="50" width="20" fill="#141414" />
+        <circle class="red outline" stroke="#404040" stroke-width="2" cx="0" cy="0" r="150"/>
+
+        <rect class="gold outline" x="-15" width="30" y="-80" height="200" />
+        <rect class="gold outline" x="-60" width="120" y="-110" height="40" />
+        <use y="-70" xlink:href="#compass" />
+    </g>
+
+</defs>
+
+<!-- 165 - (870/3=290) -1035 -->
+
+<g clip-path="url(#bound)">
+    <rect x="0" y="165" height="100%" width="100%" class="black" />
+    <rect x="0" y="455" height="100%" width="100%" class="red" />
+    <rect x="0" y="745" height="100%" width="100%" class="gold" />
+
+    <use x="50%" y="50%" xlink:href="#device" />
+</g>
+<!--<image x="0" y="165" height="880" xlink:href="full_ddr_template.png" opacity="0" />-->
+
+</svg>
