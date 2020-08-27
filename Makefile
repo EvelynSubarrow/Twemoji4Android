@@ -19,6 +19,7 @@ EMOJI = Twemoji
 font: $(EMOJI).ttf
 
 EMOJI_SVG = ./twemoji/assets/svg/
+EMOJI_OVERLAY_SVG = ./overlay/
 
 EMOJI_PNG128 = ./png/
 
@@ -34,6 +35,12 @@ $(EMOJI_PNG128): $(EMOJI_SVG)
 		emoji="$${base//.svg}"; \
 		echo "Generating $(EMOJI_PNG128)/$$emoji.png"; \
 		rsvg-convert -w 128 -h 128 -f png "$$svg" -o "$(EMOJI_PNG128)/$$emoji.png"; \
+	done
+	@for svg in "$(EMOJI_OVERLAY_SVG)"/*.svg; do \
+		base="`basename "$$svg"`"; \
+		emoji="$${base//.svg}"; \
+		echo "Generating $(EMOJI_PNG128)/$$emoji.png"; \
+		python3 interpolate.py -d 128 "$$svg" "$(EMOJI_PNG128)"; \
 	done
 
 
