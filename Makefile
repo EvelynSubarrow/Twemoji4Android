@@ -52,7 +52,9 @@ $(EMOJI_PNG128): $(EMOJI_SVG)
 	ttx "$<"
 
 $(EMOJI).ttf: $(EMOJI).tmpl.ttf $(EMOJI_BUILDER) $(PUA_ADDER) $(EMOJI_PNG128)
+	echo "builder"
 	python $(EMOJI_BUILDER) -V $< "$@" $(EMOJI_PNG128)
+	echo "PUA adder"
 	python $(PUA_ADDER) "$@" "$@-with-pua"
 	mv "$@-with-pua" "$@"
 
